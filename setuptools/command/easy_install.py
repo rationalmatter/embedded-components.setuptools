@@ -529,6 +529,7 @@ class easy_install(Command):
 
     def check_pth_processing(self):
         """Empirically verify whether .pth files are supported in inst. dir"""
+        return False # iOS will not allow spawning a process anyway (which logic below does try to do), so just assume this check has failed
         instdir = self.install_dir
         log.info("Checking .pth file support in %s", instdir)
         pth_file = self.pseudo_tempname() + ".pth"
