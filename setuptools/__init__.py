@@ -149,7 +149,8 @@ def _install_setup_requires(attrs):
 
 def setup(**attrs):
     # Make sure we have any requirements needed to interpret 'attrs'.
-    _install_setup_requires(attrs)
+    # Disable installing `setup_requires`, as this attempts to spawn a process with `pip` to install dependencies, which iOS will not allow anyway.
+    # _install_setup_requires(attrs)
     return distutils.core.setup(**attrs)
 
 
